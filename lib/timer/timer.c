@@ -52,13 +52,3 @@ void TIM2_IRQHandler(){
         timer_overflow=+0xFFFF; //si la hubo sumamos los 16bits 
     }
 }
-
-void pwm_init(uint8_t canal, uint32_t frec){
-    switch(canal){
-        case 1:
-            RCC->APB2ENR|=RCC_APB2ENR_IOPAEN;
-            RCC->APB1ENR|=RCC_APB1ENR_TIM3EN;
-            GPIOA->CRL&=~(0xF<<(TIM3_CH1)*4);
-        break;
-    }
-}
